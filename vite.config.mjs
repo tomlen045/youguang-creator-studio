@@ -1,0 +1,11 @@
+import {DEV_PORT,PREVIEW_PORT} from './port-config.mjs';
+import { defineConfig } from 'vite';
+import { fileURLToPath } from 'node:url';
+import { trendsPlugin } from './trends-server.mjs';
+import { publishPlugin } from './publish-server.mjs';
+import { imagePlugin } from './image-server.mjs';
+import { bilibiliPlugin } from './bilibili-server.mjs';
+import { textPlugin } from './text-server.mjs';
+import {museTalkPlugin} from './musetalk-server.mjs';
+const proxy={'/ollama':{target:'http://127.0.0.1:11434',rewrite:p=>p.replace(/^\/ollama/,''),changeOrigin:true}};
+export default defineConfig({root:fileURLToPath(new URL('.',import.meta.url)),plugins:[trendsPlugin(),publishPlugin(),imagePlugin(),bilibiliPlugin(),textPlugin(),museTalkPlugin()],server:{host:'127.0.0.1',port:DEV_PORT,strictPort:true,watch:{ignored:['**/runtime/**']},proxy},preview:{host:'127.0.0.1',port:PREVIEW_PORT,strictPort:true,proxy},build:{outDir:'dist',emptyOutDir:true}});

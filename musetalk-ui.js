@@ -1,0 +1,17 @@
+export function renderMuseTalkPanel({status=null,jobs=[],busy=false,assets=[],esc,button}){
+ const videoAssets=assets.filter(asset=>['视频','图片'].includes(asset.type)&&asset.fileId&&/\.(avi|mp4|mov|flv|mkv|jpg|jpeg|png|bmp|tif|tiff)$/i.test(asset.fileName||asset.title||''));
+ const audioAssets=assets.filter(asset=>asset.type==='音频'&&asset.fileId);
+ const title=status?.loading?'正在检测本地模型…':status?.ready?'本地模型已就绪':status?.error||status?.reason||'尚未检测本地模型';
+ const files=status?.files?.length?'<div class="musetalk-checklist">'+status.files.map(file=>'<span class="'+(file.present?'ready':'missing')+'">'+(file.present?'✓':'·')+' '+esc(file.name)+'</span>').join('')+'</div>':'';
+ const details=status?.home?'<p class="subtle">推理在本机完成；设备由本机环境自动选择。</p>':'';
+ const options=(items,label)=>'<option value="">'+label+'</option>'+items.map(asset=>'<option value="'+esc(asset.id)+'">'+esc(asset.title)+' · '+esc(asset.fileName||asset.type)+'</option>').join('');
+ const jobsHtml=jobs.length?'<div class="musetalk-jobs">'+jobs.slice(0,5).map(job=>{
+  const badge=job.status==='running'?'运行中':job.status==='failed'?'失败':job.status==='interrupted'?'中断':'待运行';
+  const action=job.status==='done'?(job.saved?'<span class="badge musetalk-ready">已保存到素材库</span>':'<button class="btn" data-action="musetalk-save" data-job-id="'+esc(job.id)+'">保存成片到素材库</button>'):'<span class="badge">'+badge+'</span>';
+  return '<article class="musetalk-job"><div><strong>'+esc(job.videoName||'口型同步任务')+'</strong><small>'+esc(job.message||job.status)+(job.audioName?' · '+esc(job.audioName):'')+'</small>'+(job.error?'<small class="musetalk-error">'+esc(job.error)+'</small>':'')+'</div>'+action+'</article>';
+ }).join('')+'</div>':'<div class="empty">还没有口型同步任务。</div>';
+ const blocked=busy||!status?.ready||!videoAssets.length||!audioAssets.length;
+ const missingAssets=!videoAssets.length||!audioAssets.length?'<p class="subtle">请先在素材库导入要处理的视频或人像图片，以及配音音频。</p>':'';
+ const runButton='<button class="btn primary" data-action="musetalk-run" '+(blocked?'disabled':'')+'>'+(busy?'本机推理中…':'开始口型同步')+'</button>';
+ return '<section class="panel musetalk-panel"><div class="panel-head"><div><span class="eyebrow">LOCAL LIP SYNC</span><h2>MuseTalk 1.5 离线口型同步</h2></div><span class="badge '+(status?.ready?'musetalk-ready':'')+'">'+(status?.ready?'本机可用':status?.loading?'检测中':'需检查')+'</span></div><p>选择素材库里的视频或人像图片，再配一段音频；YuNet、Whisper Tiny、SD-VAE 与 MuseTalk 会在本机完成口型同步，输出 MP4 保存回素材库。</p>'+missingAssets+'<div class="notice '+(status?.ready?'musetalk-notice-ready':'')+'" role="status"><strong>'+esc(title)+'</strong>'+details+files+(status?.dependencies?.missing?.length?'<p class="subtle">缺少 Python 包：'+esc(status.dependencies.missing.join('、'))+'</p>':'')+'</div><div class="musetalk-form"><div class="field"><label for="musetalk-video">人像视频或图片</label><select id="musetalk-video">'+options(videoAssets,'从本地素材库选择…')+'</select></div><div class="field"><label for="musetalk-audio">配音音频</label><select id="musetalk-audio">'+options(audioAssets,'从本地素材库选择…')+'</select></div><div class="field"><label for="musetalk-bbox-shift">人脸裁切偏移</label><input id="musetalk-bbox-shift" type="number" min="-30" max="30" value="0"></div></div><div class="toolbar"><span class="subtle">视频最大 800 MB，音频最大 100 MB；仅在本机运行。</span><div>'+button('去素材库','nav:素材库')+button('重新检测环境','musetalk-check')+runButton+'</div></div><div class="musetalk-job-list"><h3>最近任务</h3>'+jobsHtml+'</div></section>';
+}

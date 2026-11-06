@@ -1,0 +1,12 @@
+node_modules/
+coverage/
+research/
+dist/
+runtime/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+*.zip
+*.part

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">有光 · 创作者工作台</title>
+  <desc id="desc">本地优先的自媒体创作工作台，从选题、策划、AI 辅助写作到视频、发布管理与数据复盘。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#080b19"/><stop offset=".55" stop-color="#11132e"/><stop offset="1" stop-color="#20134b"/></linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9c70ff"/><stop offset="1" stop-color="#5d36e8"/></linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#36d9c2"/><stop offset="1" stop-color="#5f89ff"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#7854ff" stop-opacity=".26"/><stop offset="1" stop-color="#7854ff" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-.2" y="-.2" width="1.4" height="1.5"><feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#050713" flood-opacity=".5"/></filter>
+  </defs>
+  <rect width="1280" height="640" rx="34" fill="url(#bg)"/>
+  <circle cx="1060" cy="340" r="370" fill="url(#glow)"/>
+  <path d="M0 570C260 470 435 670 720 555s386-37 560 8v77H0z" fill="#7654f7" opacity=".06"/>
+  <g opacity=".18" fill="none" stroke="#9a82ff">
+    <circle cx="1100" cy="100" r="62"/><circle cx="1100" cy="100" r="89"/><circle cx="1100" cy="100" r="116"/>
+    <path d="M900 520h310M930 540h280M960 560h250"/>
+  </g>
+  <g transform="translate(74 74)">
+    <rect width="62" height="62" rx="19" fill="url(#violet)"/>
+    <path d="M31 12 36 26 50 31 36 36 31 50 26 36 12 31 26 26z" fill="#fff"/>
+    <text x="82" y="25" fill="#fff" font-size="34" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">有光</text>
+    <text x="84" y="50" fill="#a9a7c9" font-size="12" letter-spacing="3" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">CREATOR STUDIO</text>
+  </g>
+  <g transform="translate(74 210)">
+    <text fill="#fff" font-size="50" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">让创作，从灵感走向作品</text>
+    <text y="58" fill="#c5c6de" font-size="21" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">把选题、计划、AI 辅助创作、视频、发布与复盘，</text>
+    <text y="91" fill="#c5c6de" font-size="21" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">收进一套由你掌控的本地优先工作台。</text>
+    <g transform="translate(0 135)">
+      <rect width="144" height="39" rx="19.5" fill="#211b45" stroke="#504088"/>
+      <circle cx="19" cy="19.5" r="5" fill="#66dfc7"/>
+      <text x="34" y="25" fill="#e6e3ff" font-size="14" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">本地优先</text>
+      <rect x="158" width="144" height="39" rx="19.5" fill="#211b45" stroke="#504088"/>
+      <path d="M178 14v11m-5-5 5 5 5-5" fill="none" stroke="#9c83ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="194" y="25" fill="#e6e3ff" font-size="14" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">离线视频</text>
+      <rect x="316" width="154" height="39" rx="19.5" fill="#211b45" stroke="#504088"/>
+      <path d="M337 13v13m-6-6.5h12m-10-4 8 8m0-8-8 8" stroke="#72dcca" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="356" y="25" fill="#e6e3ff" font-size="14" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">18 个创作技能</text>
+    </g>
+  </g>
+  <g transform="translate(680 88)" filter="url(#shadow)">
+    <rect width="526" height="458" rx="23" fill="#0c1022" stroke="#37365f" stroke-width="2"/>
+    <rect x="1" y="1" width="524" height="54" rx="22" fill="#11152b"/>
+    <circle cx="27" cy="28" r="5" fill="#a275ff"/><circle cx="46" cy="28" r="5" fill="#5d65da"/><circle cx="65" cy="28" r="5" fill="#34c8b4"/>
+    <rect x="90" y="16" width="205" height="23" rx="7" fill="#1a1f3b"/>
+    <rect x="22" y="78" width="92" height="351" rx="13" fill="#10152c"/>
+    <rect x="35" y="96" width="67" height="29" rx="8" fill="url(#violet)"/>
+    <g fill="#777d9d"><rect x="43" y="151" width="51" height="5" rx="2.5"/><rect x="43" y="181" width="42" height="5" rx="2.5"/><rect x="43" y="211" width="49" height="5" rx="2.5"/><rect x="43" y="241" width="38" height="5" rx="2.5"/><rect x="43" y="271" width="54" height="5" rx="2.5"/><rect x="43" y="301" width="43" height="5" rx="2.5"/><rect x="43" y="331" width="51" height="5" rx="2.5"/><rect x="43" y="361" width="36" height="5" rx="2.5"/></g>
+    <text x="139" y="98" fill="#f4f2ff" font-size="17" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">让灵感，成为持续创作的力量</text>
+    <text x="139" y="121" fill="#8d93b2" font-size="10" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">你的内容工作台，从选题到复盘，一切井然有序。</text>
+    <g transform="translate(138 145)">
+      <rect width="126" height="79" rx="12" fill="#171933" stroke="#2b2e52"/><rect x="138" width="126" height="79" rx="12" fill="#131c30" stroke="#26384e"/><rect x="276" width="126" height="79" rx="12" fill="#171831" stroke="#333052"/>
+      <text x="15" y="22" fill="#9da3c1" font-size="10" font-family="sans-serif">灵感选题</text><text x="15" y="52" fill="#fff" font-size="24" font-weight="700" font-family="sans-serif">24</text><path d="M15 66c18-19 27 6 44-8s28 6 51-15" fill="none" stroke="#9b66ff" stroke-width="3"/>
+      <text x="153" y="22" fill="#9da3c1" font-size="10" font-family="sans-serif">创作计划</text><text x="153" y="52" fill="#fff" font-size="24" font-weight="700" font-family="sans-serif">18</text><path d="M153 66c18-17 27 5 44-8s28 4 51-17" fill="none" stroke="#38d2b7" stroke-width="3"/>
+      <text x="291" y="22" fill="#9da3c1" font-size="10" font-family="sans-serif">内容技能</text><text x="291" y="52" fill="#fff" font-size="24" font-weight="700" font-family="sans-serif">18</text><path d="M291 66c18-18 27 6 44-8s28 3 51-16" fill="none" stroke="#5c9dff" stroke-width="3"/>
+    </g>
+    <g transform="translate(138 242)">
+      <rect width="251" height="150" rx="13" fill="#11152a" stroke="#292d4d"/>
+      <text x="17" y="28" fill="#e8e7f6" font-size="13" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">内容创作工作台</text>
+      <rect x="17" y="43" width="64" height="19" rx="6" fill="#643dea"/><rect x="89" y="43" width="65" height="19" rx="6" fill="#1d213b"/><rect x="162" y="43" width="72" height="19" rx="6" fill="#1d213b"/>
+      <rect x="17" y="75" width="217" height="57" rx="8" fill="#0c1022" stroke="#272b4a"/>
+      <path d="M29 90h164m-164 11h142m-142 11h105" stroke="#5b6285" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+      <rect x="267" width="135" height="150" rx="13" fill="#151536" stroke="#332c63"/>
+      <circle cx="334" cy="54" r="26" fill="#30216e" stroke="#7650ff"/><path d="M322 51q12-15 24 0v10q-12 12-24 0z" fill="#a78bff"/><circle cx="329" cy="56" r="2" fill="#fff"/><circle cx="339" cy="56" r="2" fill="#fff"/>
+      <text x="286" y="105" fill="#edeaff" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">本地 AI 助手</text><text x="286" y="124" fill="#9ca2c0" font-size="9" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">写作 · 视频 · 复盘</text>
+    </g>
+  </g>
+  <text x="74" y="596" fill="#8587a8" font-size="13" letter-spacing="1.8" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">LOCAL FIRST  ·  CREATOR OWNED  ·  BUILT TO ADAPT</text>
+</svg>

@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {BUILTIN_SKILLS,makeWriterPrompt,findUnverifiedClaims,contextForWriting,contextForReview,shortDramaWorkflowTemplate} from '../skills.js';
+test('each built-in skill has distinct instructions and a shared factuality boundary',()=>{assert.ok(BUILTIN_SKILLS.length>=11);assert.equal(new Set(BUILTIN_SKILLS.map(x=>x[2])).size,BUILTIN_SKILLS.length);const prompt=makeWriterPrompt({name:'短视频脚本',input:'居家办公'});assert.match(prompt,/分镜脚本/);assert.match(prompt,/禁止编造用户未提供的可核验事实/);assert.match(prompt,/【待补充：所需事实】/);assert.match(prompt,/其余部分仍须完整完成创作要求/);assert.match(makeWriterPrompt({name:'自定义',custom:{title:'自定义',instructions:'使用三段结构'},input:'主题'}),/使用三段结构/) });
+test('short drama workflow prioritizes visual quality and continuity while reducing avoidable retries',()=>{const skill=BUILTIN_SKILLS.find(x=>x[0]==='短剧制作流程');assert.ok(skill);assert.match(skill[2],/本地 ComfyUI/);assert.match(skill[2],/画面质量和场景连续性高于积分节省/);assert.match(skill[2],/实时积分预估/);assert.match(skill[2],/片头集名卡/);const prompt=makeWriterPrompt({name:'短剧制作流程',input:'机场题材'});assert.match(prompt,/人物年龄与衣着/);assert.match(prompt,/道具方向/);assert.match(shortDramaWorkflowTemplate('机场题材'),/LibTV 生成前显示的实时费用/);assert.match(shortDramaWorkflowTemplate('机场题材'),/片头集名卡/);assert.match(shortDramaWorkflowTemplate('机场题材'),/不为省积分盲目降清晰度/);assert.match(shortDramaWorkflowTemplate('机场题材'),/本系列使用粤语/);assert.match(shortDramaWorkflowTemplate('机场题材'),/未成年或年龄不明角色保持适龄、非性化描写/);assert.match(shortDramaWorkflowTemplate('机场题材'),/口型节奏合适/)});
+test('workflow carries topic details and distinguishes missing data from zero',()=>{assert.match(contextForWriting({title:'选题',notes:'素材'}),/补充素材：素材/);const text=contextForReview({title:'作品',views:0,likes:''});assert.match(text,/阅读\/播放：0/);assert.match(text,/点赞：未记录/)});
+test('writer warns on unsupported numbers and first-person claims without flagging supplied facts',()=>{
+ const warnings=findUnverifiedClaims('1. 标题一\n2. 一周7天，节省30分钟\n3. 我的实践经验分享','请写3个标题，不要编造个人体验');
+ assert.match(warnings.join(' '),/数字、比例或时长/);assert.match(warnings.join(' '),/个人经历或实测体验/);
+ assert.deepEqual(findUnverifiedClaims('1. 我用了7天记录时间\n2. 按记录调整安排','我用了7天记录自己的时间'),[]);
+});
